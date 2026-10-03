@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HoloHand – exploded 3D views you control with your hands</title>
+</head>
+<body>
+  <video id="video" playsinline muted></video>
+  <div class="shade"></div>
+  <canvas id="scene"></canvas>
+  <canvas id="fx"></canvas>
+
+  <aside id="panel">
+    <div class="brand">
+      <div class="logo"></div>
+      <div><b>HoloHand</b><span>Explode it. Look inside.</span></div>
+    </div>
+
+    <section class="model">
+      <div class="tags"><span class="tag" id="m-cat">Machines</span><span class="tag ghost" id="m-count">0 parts</span></div>
+      <h2 id="m-name">Loading…</h2>
+      <p id="m-sub"></p>
+    </section>
+
+    <section class="stat">
+      <div><label>Tracking</label><b id="s-track">Off</b></div>
+      <div><label>Hands</label><b id="s-hands">0</b></div>
+    </section>
+
+    <section class="sliders">
+      <div class="slider"><label>Explode <b id="v-explode">0%</b></label><input id="r-explode" type="range" min="0" max="100" value="85" /></div>
+      <div class="slider"><label>Explode intensity <b id="v-int">100%</b></label><input id="r-int" type="range" min="30" max="150" value="100" /></div>
+    </section>
+
+    <section class="gest">
+      <h4>Gestures</h4>
+      <ul id="gest">
+        <li data-g="OPEN"><i>✋</i><p><b>Open slowly</b><span>explode it, see inside</span></p></li>
+        <li data-g="FIST"><i>✊</i><p><b>Close your hand</b><span>pull it back together</span></p></li>
+        <li data-g="MOVE"><i>👋</i><p><b>Move or twist</b><span>rotate and tilt it</span></p></li>
+        <li data-g="POINT"><i>☝️</i><p><b>Point</b><span>highlight a part</span></p></li>
+        <li data-g="PINCH"><i>🤏</i><p><b>Pinch a part</b><span>pull it out, drag it</span></p></li>
+        <li data-g="TWO"><i>🙌</i><p><b>Two hands</b><span>apart or together to zoom</span></p></li>
+        <li data-g="PEACE"><i>✌️</i><p><b>Peace</b><span>jump to the next model</span></p></li>
+      </ul>
+    </section>
+
+    <section class="partcard" id="partcard">
+      <div class="pc-name"><i id="pc-dot"></i><b id="pc-name">No part selected</b></div>
+      <p id="pc-desc">Point at a part, or click one, to read what it does.</p>
+    </section>
+
+    <section class="btns">
+      <button id="b-explode">Explode</button>
+      <button id="b-spin" class="on">Auto-spin</button>
+      <button id="b-reset">Reset view</button>
+      <button id="b-next">Next model</button>
+    </section>
+  </aside>
+
+  <div id="toolbar">
+    <button id="t-feed" class="on" title="Camera background"><svg viewBox="0 0 24 24"><path d="M3 7h3l2-2h8l2 2h3v12H3z"/><circle cx="12" cy="13" r="3.5"/></svg></button>
+    <button id="t-skel" class="on" title="Hand skeleton"><svg viewBox="0 0 24 24"><path d="M7 21v-8M11 21V5M15 21V8M19 21v-7M7 13l-3-2"/></svg></button>
+    <button id="t-labels" class="on" title="Part labels"><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h10"/><circle cx="18" cy="7" r="1.6"/></svg></button>
+    <button id="t-full" title="Fullscreen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+  </div>
+
+  <nav id="chips"></nav>
+  <div id="toast"></div>
+  <div id="banner"></div>
+
+  <div id="start">
+    <div class="card">
+      <div class="logo big"></div>
+      <h1>HoloHand</h1>
+      <p>Control an exploded 3D model with your bare hands. Your camera stays in the browser, nothing is uploaded.</p>
+      <button id="btn-cam" class="primary">Start camera</button>
+      <button id="btn-mouse" class="ghost">Use mouse instead</button>
+      <small>Mouse: drag to rotate, scroll to zoom, click a part to inspect it. Space explodes, arrow keys switch model.</small>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
