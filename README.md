@@ -1,4 +1,5 @@
 # HoloHand (gesture-agent-3d)
+## Dev / Creator = tubakhxn
 
 Control exploded 3D models with your bare hands. Your webcam is the background, a hand skeleton and a gold ring follow your hand,
 and each model is a glowing point cloud that pulls apart into labelled parts so you can see what is inside.
